@@ -33,7 +33,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
     title,
-    description: `${t.saveTheDate} · ${t.coverDate}`,
+    icons: {
+      icon: [{ url: "/Images/favicon.jpeg", type: "image/jpeg" }],
+      apple: [{ url: "/Images/favicon.jpeg" }],
+    },
+    description:`${t.saveTheDate} · ${t.coverDate}`,
     openGraph: { title, description: t.coverDate, images: ["/Images/hero.jpg"] },
     alternates: { languages: { en: "/en", ar: "/ar" } },
   };
