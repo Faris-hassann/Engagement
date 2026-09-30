@@ -64,11 +64,12 @@ function Calendar({ t, locale }: { t: Dict; locale: Locale }) {
           c === null ? (
             <span key={`e${i}`} />
           ) : c === day ? (
-            <span key={c} className="relative mx-auto flex h-7 w-7 items-center justify-center">
-              <svg viewBox="0 0 24 24" className="animate-pulse-ring absolute inset-0 h-full w-full rounded-full fill-wine">
+            <span key={c} className="relative mx-auto flex h-7 w-8 items-center justify-center">
+              {/* viewBox is cropped to the heart's own bounds so the number sits in its visual centre */}
+              <svg viewBox="0.9 3.5 22.2 18.5" className="absolute inset-0 h-full w-full fill-wine drop-shadow-[0_2px_3px_rgba(81,20,25,0.35)]">
                 <path d="M12 21s-7.5-4.6-10-9.2C.3 8.4 2.2 4.5 6 4.5c2.1 0 3.4 1.1 4 2.2.6-1.1 1.9-2.2 4-2.2 3.8 0 5.7 3.9 4 7.3C19.5 16.4 12 21 12 21z" />
               </svg>
-              <span className="relative -mt-0.5 text-[11px] font-bold text-white">{num(c)}</span>
+              <span className="relative -translate-y-[2px] text-[11px] font-bold leading-none text-white">{num(c)}</span>
             </span>
           ) : (
             <span key={c} className="leading-7">
@@ -105,24 +106,24 @@ export default function PartyCard({ t, locale }: { t: Dict; locale: Locale }) {
 
           <Calendar t={t} locale={locale} />
 
-          <a
-            href={calendarUrl(t)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center font-heading text-sm text-cream underline underline-offset-4"
-          >
-            {t.addToCalendar}
-          </a>
-
           <div className="mt-6">
-            <button
-              type="button"
-              onClick={() => setRsvpOpen(true)}
+            <a
+              href={calendarUrl(t)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-2 font-body text-sm font-light tracking-[0.35px] text-wine transition-transform hover:scale-[1.03]"
             >
-              {t.confirmAttendance}
-            </button>
+              {t.addToCalendar}
+            </a>
           </div>
+
+          <button
+            type="button"
+            onClick={() => setRsvpOpen(true)}
+            className="mt-6 inline-flex items-center justify-center font-heading text-sm text-cream underline underline-offset-4"
+          >
+            {t.confirmAttendance}
+          </button>
 
           <img
             src="/Images/flower2-decoration.webp"
