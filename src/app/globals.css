@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wine: #511419;
+  --color-wine-deep: #590310;
+  --color-cream: #ece4d8;
+  --color-ivory: #f7f0e8;
+  --font-display: var(--font-viaoda), var(--font-ruqaa), serif;
+  --font-script: var(--font-nautigal), var(--font-ruqaa), cursive;
+  --font-amp: var(--font-madi), cursive;
+  --font-body: Baskerville, "Times New Roman", var(--font-amiri), serif;
+  --font-heading: "Times New Roman", var(--font-amiri), serif;
+  --font-cormorant: var(--font-cormorant), var(--font-amiri), serif;
+  --font-lora: var(--font-lora), var(--font-amiri), serif;
+  --font-uchen: var(--font-uchen), Baskerville, var(--font-amiri), serif;
+}
+
+html,
+body {
+  margin: 0;
+  background: #f5ede4;
+  color: var(--color-wine);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Arabic typography: use Arabic fonts for everything and drop Latin letter spacing */
+html[dir="rtl"] {
+  --font-display: var(--font-ruqaa), serif;
+  --font-script: var(--font-ruqaa), cursive;
+  --font-body: var(--font-amiri), serif;
+  --font-heading: var(--font-amiri), serif;
+  --font-cormorant: var(--font-amiri), serif;
+  --font-lora: var(--font-amiri), serif;
+  --font-uchen: var(--font-amiri), serif;
+}
+html[dir="rtl"] body * {
+  letter-spacing: 0 !important;
+}
+
+.paper-bg {
+  position: relative;
+  isolation: isolate;
+  background-color: #f6eee4;
+}
+/* the paper texture is grey, so it is multiplied very lightly over the warm cream */
+.paper-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("/Images/paper.webp");
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+  pointer-events: none;
+}
+html[dir="rtl"] h1 {
+  line-height: 1.6 !important;
+}
+
+.wine-card {
+  background-color: var(--color-wine);
+  box-shadow: 0 14px 30px -10px rgb(0 0 0 / 0.45);
+}
+
+/* ---------- Animations ---------- */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(2.5deg); }
+}
+@keyframes heart-fall {
+  0% { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translate3d(var(--drift, 30px), 110vh, 0) rotate(var(--spin, 180deg)); opacity: 0.8; }
+}
+@keyframes heart-burst {
+  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1) rotate(var(--r)); opacity: 0; }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgb(81 20 25 / 0.35); }
+  100% { box-shadow: 0 0 0 16px rgb(81 20 25 / 0); }
+}
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shine {
+  from { transform: translateX(-120%) skewX(-20deg); }
+  to { transform: translateX(220%) skewX(-20deg); }
+}
+
+.animate-float-soft { animation: float-soft 6.5s ease-in-out infinite; }
+.animate-sway { animation: sway 7s ease-in-out infinite; transform-origin: bottom center; }
+.animate-pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.eq-bar {
+  transform-origin: bottom;
+  animation: eq 0.9s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
