@@ -7,7 +7,6 @@ import Reveal from "./Reveal";
 
 // Wishes this browser wrote: { [wishId]: ownerToken }. The token is what allows editing/deleting.
 const TOKENS_KEY = "guestbook-owner-tokens";
-const NAME_KEY = "guestbook-name";
 
 function readTokens(): Record<string, string> {
   try {
@@ -54,9 +53,6 @@ export default function Guestbook({ t, locale }: { t: Dict; locale: Locale }) {
 
   useEffect(() => {
     setTokens(readTokens());
-    try {
-      setName(localStorage.getItem(NAME_KEY) || "");
-    } catch {}
 
     const supabase = getSupabase();
     if (!supabase) {
@@ -129,10 +125,8 @@ export default function Guestbook({ t, locale }: { t: Dict; locale: Locale }) {
     const nextTokens = { ...readTokens(), [data.id]: token };
     writeTokens(nextTokens);
     setTokens(nextTokens);
-    try {
-      localStorage.setItem(NAME_KEY, name.trim());
-    } catch {}
     upsert(data as Wish);
+    setName("");
     setMessage("");
     setStatus("idle");
   };
@@ -184,6 +178,7 @@ export default function Guestbook({ t, locale }: { t: Dict; locale: Locale }) {
             <input
               required
               maxLength={100}
+              autoComplete="off"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t.namePh}
