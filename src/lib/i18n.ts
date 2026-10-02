@@ -96,7 +96,7 @@ const ar: Dict = {
   coverDate: "٢٣ أكتوبر ٢٠٢٦",
   cordially: "يتشرفان بدعوتكم",
   open: "افتح",
-  saveTheDate: "احفظوا الموعد",
+  saveTheDate: "سجل يا تاريخ كده سجل",
   ceremonyInfo: "تفاصيل حفل الخطوبة",
   welcome: [
     "يسعدنا جدًا أن نرحّب بكم في حفل خطوبتنا! 🥰✨",

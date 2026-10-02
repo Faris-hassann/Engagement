@@ -18,8 +18,8 @@ export const EVENT = {
 };
 
 export const MUSIC = {
-  url: process.env.NEXT_PUBLIC_YOUTUBE_URL || "https://youtu.be/S6vKGkoJh9g",
-  start: Number(process.env.NEXT_PUBLIC_MUSIC_START || 30),
+  url: process.env.NEXT_PUBLIC_YOUTUBE_URL || "https://www.youtube.com/watch?v=vrwVkS_bT8c",
+  start: Number(process.env.NEXT_PUBLIC_MUSIC_START || 33),
   end: process.env.NEXT_PUBLIC_MUSIC_END ? Number(process.env.NEXT_PUBLIC_MUSIC_END) : undefined,
 };
 
