@@ -60,7 +60,7 @@ export default function Cover({ t, onOpen }: { t: Dict; onOpen: () => void }) {
 
           <div className="mx-auto flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_30%,#7a1822,#3d060c)] shadow-[0_12px_30px_rgba(81,20,25,0.35)]">
             <svg viewBox="0 0 24 24" className="h-7 w-7 fill-[#f7f0ea]" aria-hidden>
-              <path d="M12 21s-7.5-4.6-10-9.2C.3 8.4 2.2 4.5 6 4.5c2.1 0 3.4 1.1 4 2.2.6-1.1 1.9-2.2 4-2.2 3.8 0 5.7 3.9 4 7.3C19.5 16.4 12 21 12 21z" />
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
           </div>
 
@@ -113,7 +113,7 @@ export default function Cover({ t, onOpen }: { t: Dict; onOpen: () => void }) {
                 } as React.CSSProperties
               }
             >
-              <path d="M12 21s-7.5-4.6-10-9.2C.3 8.4 2.2 4.5 6 4.5c2.1 0 3.4 1.1 4 2.2.6-1.1 1.9-2.2 4-2.2 3.8 0 5.7 3.9 4 7.3C19.5 16.4 12 21 12 21z" />
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
           ))}
         </div>

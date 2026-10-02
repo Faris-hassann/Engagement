@@ -66,8 +66,8 @@ function Calendar({ t, locale }: { t: Dict; locale: Locale }) {
           ) : c === day ? (
             <span key={c} className="relative mx-auto flex h-7 w-8 items-center justify-center">
               {/* viewBox is cropped to the heart's own bounds so the number sits in its visual centre */}
-              <svg viewBox="0.9 3.5 22.2 18.5" className="absolute inset-0 h-full w-full fill-wine drop-shadow-[0_2px_3px_rgba(81,20,25,0.35)]">
-                <path d="M12 21s-7.5-4.6-10-9.2C.3 8.4 2.2 4.5 6 4.5c2.1 0 3.4 1.1 4 2.2.6-1.1 1.9-2.2 4-2.2 3.8 0 5.7 3.9 4 7.3C19.5 16.4 12 21 12 21z" />
+              <svg viewBox="2 3 20 18.35" className="absolute inset-0 h-full w-full fill-wine drop-shadow-[0_2px_3px_rgba(81,20,25,0.35)]">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
               </svg>
               <span className="relative -translate-y-[2px] text-[11px] font-bold leading-none text-white">{num(c)}</span>
             </span>

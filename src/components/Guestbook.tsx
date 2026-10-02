@@ -245,7 +245,6 @@ export default function Guestbook({ t, locale }: { t: Dict; locale: Locale }) {
           />
         </div>
       </Reveal>
-      <p className="mt-8 text-center font-heading text-[13px] text-wine">{t.closing}</p>
     </section>
   );
 }

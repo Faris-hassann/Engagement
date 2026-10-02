@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { EVENT } from "@/lib/config";
 import type { Dict } from "@/lib/i18n";
-import Reveal from "./Reveal";
 
 const photos = EVENT.gallery;
 
@@ -40,12 +39,8 @@ export default function Gallery({ t, rtl }: { t: Dict; rtl: boolean }) {
 
   return (
     <section className="relative py-16 text-center">
-      <Reveal>
-        <h2 className="font-heading text-[20px] font-bold tracking-[0.6px] text-wine">{t.gallery}</h2>
-      </Reveal>
-
       <div
-        className="relative mx-auto mt-10 h-[430px] w-full max-w-[430px] touch-pan-y select-none [perspective:1200px]"
+        className="relative mx-auto h-[430px] w-full max-w-[430px] touch-pan-y select-none [perspective:1200px]"
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
         onPointerCancel={() => (startX.current = null)}
